@@ -33,7 +33,5 @@ $(document).ready(function () {
       }
     }
     
-    // $photoWrapper.append(`<h3>${photoData.title}</h3>`);
   }
-  
-}); // document.ready
+}); // document ready
