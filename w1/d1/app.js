@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  // $.get("https://swapi.co/api/people/3", console.log);
+
   // get random number in range, max is exclusive
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + min;
@@ -12,15 +14,12 @@ $(document).ready(function () {
     
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/photos/" + randomId,
-      success: function (data) {
-        console.log(data);
-        addHtml(data);
-      }
+      // our successHandler function will be executed with the returned data
+      success: successHandler
     });   
   });
 
-
-  function addHtml(photoData) {
+  function successHandler(photoData) {
     const $photoWrapper = $("#random-photo");
 
     for (const key in photoData) {
