@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-  // $.get("https://swapi.co/api/people/3", console.log);
-
   // get random number in range, max is exclusive
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + min;
