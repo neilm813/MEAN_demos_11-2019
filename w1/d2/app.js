@@ -9,7 +9,7 @@ const objectLiteral = {
 // adding a new key after the object was already created
 objectLiteral.key3 = 'val3';
 
-console.log(objectLiteral);
+// console.log(objectLiteral);
 
 // Factory function
 function HumanFactory(firstName, lastName, height) {
@@ -43,15 +43,16 @@ function HumanConstructor(firstName, lastName, height) {
 }
 
 // adding method via .prototype will not make a copy of it on every instance
-HumanConstructor.prototype.fullName = function() {
-  console.log(`${this.firstName} ${this.lastName} FROM PROTOTYPE`);  
+HumanConstructor.prototype.fullName = function () {
+  console.log(`${this.firstName} ${this.lastName} FROM PROTOTYPE`);
 }
 
 const humanFromConstructorFn = new HumanConstructor("Isaac", "G for gangsta", "5'8");
 // humanFromConstructorFn.fullName();
 
+// syntactical sugar for HumanConstructor
 class Human {
-  constructor (firstName, lastName, height) {
+  constructor(firstName, lastName, height) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.height = height;
