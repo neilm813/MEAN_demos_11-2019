@@ -1,17 +1,22 @@
 // Ways to create objects in JS
 
 // Object literal
+// no blueprint to define this object will represent
+// can add more props with dot notation
 const objectLiteral = {
   key1: 'val1',
-  key2: 'val2'
+  key2: 'val2',
+  method: function() {
+    console.log('method on object literal');
+  }
 };
 
 // adding a new key after the object was already created
 objectLiteral.key3 = 'val3';
-
 // console.log(objectLiteral);
 
 // Factory function
+// function that builds & returns object literal
 function HumanFactory(firstName, lastName, height) {
   return {
     firstName: firstName,
@@ -25,7 +30,6 @@ function HumanFactory(firstName, lastName, height) {
 }
 
 const humanFromFactory = HumanFactory("Neil", "M", "5'9");
-
 // console.log(humanFromFactory);
 // humanFromFactory.fullName();
 
@@ -43,6 +47,8 @@ function HumanConstructor(firstName, lastName, height) {
 }
 
 // adding method via .prototype will not make a copy of it on every instance
+// if the same method exists on the instance, method on the instance will be used
+// if the method is not found on the instance, it will look for it on the prototype
 HumanConstructor.prototype.fullName = function () {
   console.log(`${this.firstName} ${this.lastName} FROM PROTOTYPE`);
 }
