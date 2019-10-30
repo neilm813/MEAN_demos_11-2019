@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <button id="get">Click to GET</button>
+  <button id="post">Click to POST</button>
+  <button id="put">Click to PUT</button>
+
+  <script>
+    $(document).ready(function () {
+
+      let apiUrl = '/api';
+
+      $("#get").click(function () {
+
+        $.get(apiUrl, function (data, fullResponse) {
+          console.log(data, fullResponse);
+        });
+      });
+
+      $("#post").click(function () {
+
+        // since I just want to console.log all of the
+        // arguments, we can use console.log as our
+        // call back so jQuery will auto execute console.log for us
+        // compare this to what we did above in the get
+        $.post(apiUrl, console.log);
+      });
+
+      $("#put").click(function () {
+
+        $.ajax({
+          url: apiUrl,
+          method: 'PUT',
+          success: function (data) {
+            console.log(data);
+          }
+        });
+      });
+      
+    });
+  </script>
+</body>
+</html>
