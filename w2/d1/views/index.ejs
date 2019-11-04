@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hi</h1>
+
+  <form action="/dojos" method="POST">
+    <div>
+      <label>Location</label>
+      <input type="text" name="location">
+    </div>
+    <div>
+      <label>Capacity</label>
+      <input type="number" name="capacity">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+  <table style="text-align: left;">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Capacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let dojo of dojos) { %>
+      <tr>
+        <td><%= dojo.location %></td>
+        <td><%= dojo.capacity %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
