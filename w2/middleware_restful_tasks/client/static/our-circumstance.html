@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Current Human Condition</title>
+</head>
+
+<body>
+  <h2>Born too soon to explore the galaxy.</h2>
+  <h2>Born too late to explore the Earth.</h2>
+  <h1 id="there-is-hope">Born just in time to browse dank memes.</h1>
+  <img id="more-hope" style="visibility: hidden;" src="https://i.imgur.com/OUKtQzO.png"
+    alt="Across The Vast Expanse of Space, Memes Echo Into Eternity">
+
+  <script>
+    const hope = document.getElementById("there-is-hope");
+    setTimeout(() => {
+
+      setInterval(() => {
+        hope.style.color = hope.style.color === 'green' ? 'red' : 'green';
+      }, 250);
+    }, 900);
+
+    setTimeout(() => {
+      document.getElementById("more-hope").style.visibility = 'visible';
+    }, 3000);
+  </script>
+
+</body>
+
+</html>
