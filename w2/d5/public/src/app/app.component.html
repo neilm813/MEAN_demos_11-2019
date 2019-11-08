@@ -1,0 +1,29 @@
+<table class="table" style="text-align: left;">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>Description</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.completed }}</td>
+      <td>
+        <button (click)="setActiveTask(task)">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<h1>Active Task</h1>
+<div *ngIf="activeTask" class="active-task">
+  <p>Title: {{ activeTask.title }}</p>
+  <p>Description: {{ activeTask.description }}</p>
+  <p>Completed: {{ activeTask.completed }}</p>
+</div>
+
+<router-outlet></router-outlet>
