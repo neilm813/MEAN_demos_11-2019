@@ -20,18 +20,23 @@ const app = express();
   http://localhost:3000/this-file.txt
   http://localhost:3000/our-circumstance.html
 */
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   // req.path is the path that comes after localhost:3000
   const filePath = path.join(__dirname, 'client', 'static', req.path);
-  
+
   // readFile's first arg is the path
   // second arg is a callback that will be executed if error
   // third arg is callback that will be executed if file is found
-  fs.readFile(filePath, () => next(), file => {
-    // response part of req / res cycle
-    // this req / res cycle is complete when there is a response
-    res.sendFile(filePath);
-  })
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      return next();
+    }
+    else {
+      // response part of req / res cycle
+      // this req / res cycle is complete when there is a response
+      res.sendFile(filePath);
+    }
+  });
 });
 
 app.use(express.json()); // enables json to be received
