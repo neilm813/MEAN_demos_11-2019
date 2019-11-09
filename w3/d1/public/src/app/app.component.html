@@ -1,0 +1,46 @@
+<h1>New Task</h1>
+<p>newTask.title (property in app.component): {{ newTask.title }}</p>
+<form (submit)="handleTaskSubmit()">
+  <div>
+    <label>Title: </label>
+    <input type="text" name="title" [(ngModel)]="newTask.title">
+  </div>
+  <div>
+    <label>Description: </label>
+    <input type="text" name="description" [(ngModel)]="newTask.description">
+  </div>
+  <div>
+    <label>Completed: </label>
+    <input type="checkbox" name="completed" [(ngModel)]="newTask.completed">
+  </div>
+  <button>Submit</button>
+</form>
+<hr>
+
+<table class="table" style="text-align: left;">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>Description</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.completed }}</td>
+      <td>
+        <button (click)="setActiveTask(task)">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<!-- [activeTask] refers to the @Input property name in show-task -->
+<!-- ="activeTask" is using the value of activeTask in app-component -->
+<show-task *ngIf="activeTask" [taskToShow]="activeTask" [appTitle]="title">
+</show-task>
+
+<router-outlet></router-outlet>
