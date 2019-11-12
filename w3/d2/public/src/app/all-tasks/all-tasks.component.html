@@ -1,0 +1,21 @@
+<table class="table" style="text-align: left;">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>Description</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.completed }}</td>
+      <td>
+        <a [routerLink]="[task._id]">View</a>
+        <!-- doing it the below way will cause a page refresh, don't do it -->
+        <!-- <a href="/{{ task._id }}">View href</a> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
