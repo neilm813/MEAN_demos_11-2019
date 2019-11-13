@@ -1,0 +1,25 @@
+<a routerLink="/">Home</a>
+
+<h3>Add a new author:</h3>
+<div>
+  <p *ngFor="let error of errors" class="error">
+    {{ error }}
+  </p>
+</div>
+
+<form (submit)="handleSubmit()">
+  <div>
+    <label>Name </label>
+    <input type="text" name="name" [(ngModel)]="newAuthor.name">
+  </div>
+  <div>
+    <label>Age </label>
+    <input type="number" name="age" [(ngModel)]="newAuthor.age">
+  </div>
+  <button type="button" (click)="handleCancel()">
+    Cancel
+  </button>
+  <button>
+    Submit
+  </button>
+</form>
