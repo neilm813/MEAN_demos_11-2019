@@ -1,0 +1,6 @@
+<button routerLink="/rides/new">
+  New Ride
+</button>
+<hr>
+
+<app-ride *ngFor="let ride of rides" [rideToShow]="ride"></app-ride>

@@ -1,0 +1,34 @@
+<hr>
+
+<form (submit)="handleSubmit()">
+  {{ newRide | json}}
+  <p class="text-danger">{{ errors }}</p>
+  <div>
+    <label>
+      Driver
+    </label>
+    <input [(ngModel)]="newRide.driver" type="text" name="driver">
+  </div>
+
+  <div>
+    <label>
+      Destination
+    </label>
+    <input [(ngModel)]="newRide.destination" type="text" name="destination">
+  </div>
+
+  <div>
+    <label>
+      Capacity
+    </label>
+    <input [(ngModel)]="newRide.capacity" type="number" name="capacity">
+  </div>
+
+  <button>
+    Submit
+  </button>
+</form>
+
+<button routerLink="/rides/all">
+  Cancel
+</button>
