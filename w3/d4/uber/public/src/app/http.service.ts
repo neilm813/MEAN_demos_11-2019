@@ -22,4 +22,12 @@ export class HttpService {
     return this._http.post('/api/passengers/' + rideId, newPassenger);
   }
 
+  deleteRide(rideId: string) {
+    return this._http.delete('/api/rides/' + rideId);
+  }
+
+  deletePassenger(passengerId: string, rideId: string) {
+    return this._http.delete(`/api/passengers/${passengerId}/rides/${rideId}`);
+  }
+
 }

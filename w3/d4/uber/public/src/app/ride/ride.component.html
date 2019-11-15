@@ -1,13 +1,13 @@
 <div>
-  <button (click)="deleteRide(rideToShow._id)">Delete</button>
+  <button (click)="deleteRide()">Delete</button>
 
   <p>Driver: {{ rideToShow.driver }}</p>
   <p>Destination: {{ rideToShow.destination }}</p>
   <p>Passengers {{ rideToShow.passengers.length }} / {{ rideToShow.capacity }}:</p>
   <ul>
-    <li *ngFor="let passenger of rideToShow.passengers">
+    <li *ngFor="let passenger of rideToShow.passengers; let i = index;">
       {{ passenger.name }}
-      <button (click)="deletePassenger(passenger._id)">Take Out The Trash</button>
+      <button (click)="deletePassenger(passenger._id, i)">Take Out The Trash</button>
     </li>
   </ul>
 

@@ -3,4 +3,12 @@
 </button>
 <hr>
 
-<app-ride *ngFor="let ride of rides" [rideToShow]="ride"></app-ride>
+<!-- Techniques for trigger all-rides to re-render the rides after a ride is deleted -->
+
+<!-- Technique 1: Pass the rides array to the ride component so the ride component can remove the deleted ride from the array which will trigger all-rides to re-render -->
+<!-- <app-ride *ngFor="let ride of rides; let i = index;" [rideToShow]="ride" [allRides]="rides" [rideIdx]="i"></app-ride> -->
+
+<!-- Technique 2: Best Practice: Using @Output to emit an event that all-rides component can listen for and when the event is heard all-rides component will remove the ride from the array -->
+
+<app-ride *ngFor="let ride of rides; let i = index;" [rideToShow]="ride" [rideIdx]="i"
+  (rideDeleted)="removeRideByIdx($event)" (passengerDeleted)="removePassengerByIdx($event, i)"></app-ride>
