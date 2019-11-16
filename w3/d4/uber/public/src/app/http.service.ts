@@ -14,6 +14,22 @@ export class HttpService {
     return this._http.get('/api/rides');
   }
 
+  getRide(id: string) {
+    return this._http.get('/api/rides/' + id);
+  }
+
+  updateRide(editedRide: any) {
+    console.log('/api/rides/' + editedRide._id);
+
+    return this._http.put('/api/rides/' + editedRide._id, editedRide);
+  }
+
+  // don't need to pass the id in separately, because we already have it
+  // in the editedRide
+  // updateRide(id: string, editedRide: any) {
+  //   return this._http.put('/api/rides/' + id, editedRide);
+  // }
+
   createRide(newRide: {}) {
     return this._http.post('/api/rides', newRide);
   }

@@ -1,6 +1,6 @@
 <div>
   <button (click)="deleteRide()">Delete</button>
-
+  <button routerLink="/rides/edit/{{ rideToShow._id }}">Edit</button>
   <p>Driver: {{ rideToShow.driver }}</p>
   <p>Destination: {{ rideToShow.destination }}</p>
   <p>Passengers {{ rideToShow.passengers.length }} / {{ rideToShow.capacity }}:</p>

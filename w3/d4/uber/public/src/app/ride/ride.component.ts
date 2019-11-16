@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-ride',
@@ -38,6 +38,7 @@ export class RideComponent implements OnInit {
   constructor(
     private _httpService: HttpService,
     private _router: Router,
+    private _route: ActivatedRoute,
   ) { }
 
   ngOnInit() {

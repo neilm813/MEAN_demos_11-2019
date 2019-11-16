@@ -9,13 +9,15 @@ import { NewRideComponent } from './new-ride/new-ride.component';
 import { RideComponent } from './ride/ride.component';
 import { AllRidesComponent } from './all-rides/all-rides.component';
 import { HttpService } from './http.service';
+import { EditRideComponent } from './edit-ride/edit-ride.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewRideComponent,
     RideComponent,
-    AllRidesComponent
+    AllRidesComponent,
+    EditRideComponent
   ],
   imports: [
     BrowserModule,

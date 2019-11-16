@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewRideComponent } from './new-ride/new-ride.component';
 import { AllRidesComponent } from './all-rides/all-rides.component';
 import { RideComponent } from './ride/ride.component';
+import { EditRideComponent } from './edit-ride/edit-ride.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'rides/all',
     component: AllRidesComponent
+  },
+  {
+    path: 'rides/edit/:id',
+    component: EditRideComponent
   },
   {
     path: 'rides/:id',

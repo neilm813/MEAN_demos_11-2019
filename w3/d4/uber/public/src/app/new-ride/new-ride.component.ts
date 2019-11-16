@@ -25,7 +25,7 @@ export class NewRideComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleSubmit() {
+  createRide() {
     this._httpService.createRide(this.newRide)
       .subscribe((data: any) => {
 
