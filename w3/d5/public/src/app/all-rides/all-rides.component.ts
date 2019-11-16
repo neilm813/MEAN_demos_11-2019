@@ -26,8 +26,10 @@ export class AllRidesComponent implements OnInit {
     this._httpService.allRides()
       .subscribe((data: any) => {
         this.rides = data.rides;
-        /** Add rides to our RideService so any component can access the array */
-        this._rideService.rides = this.rides;
+        /** Give RideService a pointer/reference to our rides so they can
+         * be shared / updated from any component
+         */
+        this._rideService.setRides(this.rides);
       });
   }
 
