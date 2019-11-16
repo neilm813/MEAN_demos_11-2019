@@ -1,0 +1,17 @@
+<div>
+  <h2>Baked by: {{ cake.baker_name }}</h2>
+  <div class="summary">
+    <div>
+      <img [src]="cake.image_url" width="300">
+    </div>
+    <div *ngIf="cake.reviews.length">
+      <h3>Average rating {{ calculateAverageRating(cake.reviews) }} stars</h3>
+      <div *ngFor="let review of cake.reviews">
+        <p>
+          {{ review.comment }}<br />
+          {{ review.rating }} stars
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<h1>Rate My Cakes</h1>
+<main>
+  <div class="main">
+    <form (submit)="handleSubmit()">
+      <p>Submit a cake to be rated</p>
+      <div>
+        <label for="baker_name">Baker name:</label>
+        <input type="text" id="baker_name" name="name" [(ngModel)]="newCake.baker_name">
+      </div>
+      <div>
+        <label for="image_url">Image URL:</label>
+        <input type="text" id="image_url" name="image_url" [(ngModel)]="newCake.image_url">
+      </div>
+      <button>Submit</button>
+    </form>
+    <div *ngIf="cakes.length">
+      <!-- Call setSelectedCake from child technique -->
+      <app-cake *ngFor="let cake of cakes" [cake]="cake" [setSelectedCakeInParent]="selectCake"
+        (updated)="updated($event)"></app-cake>
+
+      <!-- @Output technique -->
+      <!-- <app-cake
+        *ngFor="let cake of cakes"
+        [cake]="cake"
+        (selected)="selectCake(cake)"
+        (updated)="updated($event)"
+      ></app-cake> -->
+    </div>
+  </div>
+  <app-summary *ngIf="selectedCake !== null" [cake]="selectedCake"></app-summary>
+</main>
