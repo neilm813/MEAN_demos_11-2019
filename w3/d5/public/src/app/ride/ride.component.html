@@ -1,0 +1,23 @@
+<div>
+  <button (click)="deleteRide()">Delete</button>
+  <button routerLink="/rides/edit/{{ rideToShow._id }}">Edit</button>
+  <p>Driver: {{ rideToShow.driver }}</p>
+  <p>Destination: {{ rideToShow.destination }}</p>
+  <p>Passengers {{ rideToShow.passengers.length }} / {{ rideToShow.capacity }}:</p>
+  <ul>
+    <li *ngFor="let passenger of rideToShow.passengers; let i = index;">
+      {{ passenger.name }}
+      <button (click)="deletePassenger(passenger._id, i)">Take Out The Trash</button>
+    </li>
+  </ul>
+
+  <p class="text-danger">{{ errors }}</p>
+  <form (submit)="addPassenger()">
+    <div>
+      <label>Passenger Name: </label>
+      <input [(ngModel)]="newPassenger.name" name="name" type="text">
+    </div>
+    <button>Add Passenger</button>
+  </form>
+  <hr>
+</div>
