@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   cakes = [];
   selectedCake = null;
 
-  constructor(private _http: HttpService) { }
+  constructor(private _http: HttpService) {}
 
   getCakes() {
     this._http.getCakes().subscribe((data: any) => this.cakes = data.cakes);
@@ -26,14 +26,14 @@ export class AppComponent implements OnInit {
     this.getCakes();
   }
 
-  selectCake = (cake: any) => {
+  selectCake(cake) {
     this.selectedCake = cake;
   }
 
   handleSubmit() {
     this._http.createCake(this.newCake)
       .subscribe((response: any) => {
-        if (response.hasOwnProperty('cake')) {
+        if(response.hasOwnProperty('cake')) {
           this.cakes.push(response.cake);
 
           // reset the form
@@ -48,8 +48,8 @@ export class AppComponent implements OnInit {
   updated(updatedCake) {
     const index = this.cakes.findIndex(cake => cake._id === updatedCake._id);
     this.cakes[index] = updatedCake;
-
-    if (this.selectedCake && this.selectedCake._id === updatedCake._id) {
+    
+    if(this.selectedCake && this.selectedCake._id === updatedCake._id) {
       this.selectedCake = updatedCake;
     }
   }

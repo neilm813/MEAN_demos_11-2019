@@ -14,17 +14,12 @@
       <button>Submit</button>
     </form>
     <div *ngIf="cakes.length">
-      <!-- Call setSelectedCake from child technique -->
-      <app-cake *ngFor="let cake of cakes" [cake]="cake" [setSelectedCakeInParent]="selectCake"
-        (updated)="updated($event)"></app-cake>
-
-      <!-- @Output technique -->
-      <!-- <app-cake
+      <app-cake
         *ngFor="let cake of cakes"
         [cake]="cake"
         (selected)="selectCake(cake)"
         (updated)="updated($event)"
-      ></app-cake> -->
+      ></app-cake>
     </div>
   </div>
   <app-summary *ngIf="selectedCake !== null" [cake]="selectedCake"></app-summary>
