@@ -1,0 +1,30 @@
+<div *ngIf="rideToEdit !== null">
+  <form (submit)="updateRide()">
+    <p>{{ rideToEdit._id }}</p>
+    <p class="text-danger">{{ errors }}</p>
+    <div>
+      <label>
+        Driver
+      </label>
+      <input [(ngModel)]="rideToEdit.driver" type="text" name="driver">
+    </div>
+
+    <div>
+      <label>
+        Destination
+      </label>
+      <input [(ngModel)]="rideToEdit.destination" type="text" name="destination">
+    </div>
+
+    <div>
+      <label>
+        Capacity
+      </label>
+      <input [(ngModel)]="rideToEdit.capacity" type="number" name="capacity">
+    </div>
+
+    <button>
+      Submit
+    </button>
+  </form>
+</div>
