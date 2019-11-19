@@ -1,0 +1,20 @@
+<div class="cake">
+  <img [src]="cake.image_url" width="200" (click)="selectCake()">
+  <form (submit)="addReview(cake._id)">
+    <div>
+      <select name="rating" [(ngModel)]="rating">
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+    </div>
+    <div>
+      <textarea name="comment" cols="30" rows="10" [(ngModel)]="comment" placeholder="Type your comment here"></textarea>
+    </div>
+    <div>
+      <button>Rate!</button>
+    </div>
+  </form>
+</div>

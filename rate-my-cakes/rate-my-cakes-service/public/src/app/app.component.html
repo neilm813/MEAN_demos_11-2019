@@ -1,0 +1,23 @@
+<h1>Rate My Cakes</h1>
+<main>
+  <div class="main">
+    <form (submit)="createCake()">
+      <p>Submit a cake to be rated</p>
+      <div>
+        <label for="baker_name">Baker name:</label>
+        <input type="text" id="baker_name" name="name" [(ngModel)]="newCake.baker_name">
+      </div>
+      <div>
+        <label for="image_url">Image URL:</label>
+        <input type="text" id="image_url" name="image_url" [(ngModel)]="newCake.image_url">
+      </div>
+      <button>Submit</button>
+    </form>
+
+    <div *ngIf="cakes">
+      <app-cake *ngFor="let cake of cakes.all; let idx = index;" [cake]="cake" [cakeIdx]="idx"></app-cake>
+    </div>
+
+  </div>
+  <app-summary *ngIf="cakes.selected !== null" [cake]="cakes.selected"></app-summary>
+</main>
